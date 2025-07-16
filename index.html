@@ -1,124 +1,121 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eda & Melih Nikah Davetiyesi</title>
+    <title>Eda & Melih - Düğün Davetiyesi</title>
     <style>
-        /* Temel stil ayarları */
-        body {
-            font-family: 'Arial', sans-serif;
+        /* Genel stil */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            box-sizing: border-box;
         }
 
-        /* Başlık kısmı */
-        header {
-            background-color: #4e2a1f;
-            color: white;
-            text-align: center;
-            padding: 50px 0;
+        body {
             font-family: 'Arial', sans-serif;
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            letter-spacing: 3px;
-        }
-
-        /* Etkinlik bölümü */
-        .container {
-            display: flex;
-            justify-content: center;
-            padding: 30px;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .event-info {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            padding: 25px;
-            text-align: center;
-            font-size: 1.1rem;
-            border-left: 5px solid #4e2a1f;
-        }
-
-        .event-info h2 {
-            font-size: 2rem;
-            color: #4e2a1f;
-            margin-bottom: 15px;
-        }
-
-        .event-info p {
-            margin: 10px 0;
-            font-size: 1rem;
+            background-color: #f4f4f4;
             color: #333;
+            line-height: 1.6;
         }
 
-        .event-info .date {
-            font-weight: bold;
-            color: #e05c5c;
-            font-size: 1.2rem;
+        .container {
+            width: 90%;
+            margin: 0 auto;
         }
 
-        /* Footer kısmı */
-        footer {
-            background-color: #4e2a1f;
+        /* Başlık stil */
+        .header {
+            background-color: #3b2a20;
             color: white;
             text-align: center;
-            padding: 20px 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            padding: 30px 0;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        /* Etkinlikler bölümü */
+        .events {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .event {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            min-width: 280px;
+            flex-grow: 1;
+        }
+
+        .event h2 {
+            font-size: 1.8em;
+            color: #3b2a20;
+            margin-bottom: 10px;
+        }
+
+        .event p {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .event strong {
+            font-weight: bold;
+        }
+
+        /* Mobil uyumlu stil */
+        @media (max-width: 768px) {
+            .events {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .event {
+                width: 80%;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+            }
         }
     </style>
 </head>
-
 <body>
-
-    <!-- Header kısmı -->
-    <header>
-        <h1>Eda & Melih</h1>
-    </header>
-
-    <!-- İçerik kısmı -->
     <div class="container">
-        <!-- Nikah bilgisi -->
-        <div class="event-info">
-            <h2>NİKAH</h2>
-            <p>Üsküdar Nikah Sarayı</p>
-            <p class="date">18.10.2025 - 12:45</p>
-            <p>Mimar Sinan Mah. Çavuşdere Cad. No: 35 Üsküdar / İstanbul</p>
-        </div>
+        <header class="header">
+            <h1>EDA & MELİH</h1>
+        </header>
+        
+        <section class="events">
+            <div class="event">
+                <h2>NİKAH</h2>
+                <p><strong>Tarih:</strong> 18.10.2025</p>
+                <p><strong>Saat:</strong> 12:45</p>
+                <p><strong>Yer:</strong> Üsküdar Nikah Sarayı, Mimar Sinan Mah. Çavuşdere Cad. No: 35 Üsküdar/Istanbul</p>
+            </div>
 
-        <!-- Kına bilgisi -->
-        <div class="event-info">
-            <h2>KINA</h2>
-            <p>Be Wont Organizasyon Salonu</p>
-            <p class="date">23.10.2025 - 19:00</p>
-            <p>Çerkez Taşköprü Sapağı / Düzce</p>
-        </div>
+            <div class="event">
+                <h2>KINA</h2>
+                <p><strong>Tarih:</strong> 23.10.2025</p>
+                <p><strong>Saat:</strong> 19:00</p>
+                <p><strong>Yer:</strong> Be Wont Organizasyon Salonu, Çerkez Taşköprü Sapağı / Düzce</p>
+            </div>
 
-        <!-- Düğün bilgisi -->
-        <div class="event-info">
-            <h2>DÜĞÜN</h2>
-            <p>Baykal Wedding Palace</p>
-            <p class="date">25.10.2025 - 19:00</p>
-            <p>Şehit Bayram Gökmen Mah. D655 Karayolu No: 78 / Düzce</p>
-        </div>
+            <div class="event">
+                <h2>DÜĞÜN</h2>
+                <p><strong>Tarih:</strong> 25.10.2025</p>
+                <p><strong>Saat:</strong> 19:00</p>
+                <p><strong>Yer:</strong> Baykal Wedding Palace, Şehit Bayram Gökmen Mah. D655 Karayolu No: 78 / Düzce</p>
+            </div>
+        </section>
     </div>
-
-    <!-- Footer kısmı -->
-    <footer>
-        <p>&copy; 2025 Eda & Melih | Tüm Hakları Saklıdır</p>
-    </footer>
-
 </body>
-
 </html>
