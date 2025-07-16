@@ -12,6 +12,11 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
         body {
             font-family: 'Candara Light', sans-serif;
             background-color: #f5f5ef;
@@ -29,13 +34,17 @@
             background-color: #3b2a20;
             color: white;
             text-align: center;
-            padding: 30px 0;
+            padding: 50px 0;
+            width: 100%; /* Arka planı ekranın tamamını kaplamak için genişlik ayarı */
+            position: relative; /* Konumlandırma ile genişletme */
+            box-sizing: border-box;
         }
 
         .header h1 {
             font-family: 'Candara Light', sans-serif;
             font-size: 3em;
             font-weight: normal; /* Yazıyı normal yapmak için */
+            margin: 0;
         }
 
         /* Etkinlikler bölümü */
@@ -95,7 +104,7 @@
             .header h1 {
                 font-family: 'Candara Light', sans-serif;
                 font-size: 2.5em;
-                font-weight: lighter; /* Yazıyı daha ince yapmak için */
+                font-weight: normal; /* Yazıyı normal yapmak için */
             }
 
             /* Mobilde kalan zaman fontunu daha küçük yapalım */
