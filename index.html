@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: 'Candara', sans-serif; /* Candara fontu eklendi */
+            font-family: 'Candara', sans-serif;
             background-color: #f4f4f4;
             color: #333;
             line-height: 1.6;
@@ -33,9 +33,9 @@
         }
 
         .header h1 {
-            font-family: 'Candara', sans-serif; /* Candara Light fontu eklendi */
+            font-family: 'Candara', sans-serif;
             font-size: 3em;
-            font-weight: lighter; /* Daha hafif bir font stili */
+            font-weight: lighter;
         }
 
         /* Etkinlikler bölümü */
@@ -72,6 +72,13 @@
             font-weight: bold;
         }
 
+        /* Kalan zaman stil */
+        .countdown {
+            font-size: 1.2em;
+            margin-top: 15px;
+            color: #3b2a20;
+        }
+
         /* Mobil uyumlu stil */
         @media (max-width: 768px) {
             .events {
@@ -83,11 +90,10 @@
                 width: 80%;
             }
 
-            /* Mobil görünümde de fontu aynı tutuyoruz */
             .header h1 {
-                font-family: 'Candara', sans-serif; /* Mobilde fontu aynı tutuyoruz */
+                font-family: 'Candara', sans-serif;
                 font-size: 2.5em;
-                font-weight: lighter; /* Daha hafif yazı stili */
+                font-weight: lighter;
             }
         }
     </style>
@@ -104,6 +110,7 @@
                 <p><strong>Tarih:</strong> 18.10.2025</p>
                 <p><strong>Saat:</strong> 12:45</p>
                 <p><strong>Yer:</strong> Üsküdar Nikah Sarayı, Mimar Sinan Mah. Çavuşdere Cad. No: 35 Üsküdar/Istanbul</p>
+                <div id="nikah-countdown" class="countdown"></div>
             </div>
 
             <div class="event">
@@ -111,6 +118,7 @@
                 <p><strong>Tarih:</strong> 23.10.2025</p>
                 <p><strong>Saat:</strong> 19:00</p>
                 <p><strong>Yer:</strong> Be Wont Organizasyon Salonu, Çerkez Taşköprü Sapağı / Düzce</p>
+                <div id="kina-countdown" class="countdown"></div>
             </div>
 
             <div class="event">
@@ -118,8 +126,46 @@
                 <p><strong>Tarih:</strong> 25.10.2025</p>
                 <p><strong>Saat:</strong> 19:00</p>
                 <p><strong>Yer:</strong> Baykal Wedding Palace, Şehit Bayram Gökmen Mah. D655 Karayolu No: 78 / Düzce</p>
+                <div id="dugun-countdown" class="countdown"></div>
             </div>
         </section>
     </div>
+
+    <script>
+        // Tarihleri belirliyoruz
+        const nikahDate = new Date("October 18, 2025 12:45:00").getTime();
+        const kinaDate = new Date("October 23, 2025 19:00:00").getTime();
+        const dugunDate = new Date("October 25, 2025 19:00:00").getTime();
+
+        // Geri sayımı her saniye güncelleyen fonksiyon
+        function updateCountdown() {
+            const now = new Date().getTime();
+
+            // Nikah
+            const nikahTimeLeft = nikahDate - now;
+            document.getElementById("nikah-countdown").innerHTML = formatTime(nikahTimeLeft);
+
+            // Kına
+            const kinaTimeLeft = kinaDate - now;
+            document.getElementById("kina-countdown").innerHTML = formatTime(kinaTimeLeft);
+
+            // Düğün
+            const dugunTimeLeft = dugunDate - now;
+            document.getElementById("dugun-countdown").innerHTML = formatTime(dugunTimeLeft);
+        }
+
+        // Zamanı günlere, saatlere, dakikalara ve saniyelere çeviren fonksiyon
+        function formatTime(time) {
+            const days = Math.floor(time / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((time % (1000 * 60)) / 1000);
+            return `${days} Gün ${hours} Saat ${minutes} Dakika ${seconds} Saniye`;
+        }
+
+        // İlk sayfa yüklendiğinde geri sayımı başlatıyoruz
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
