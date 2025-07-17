@@ -35,16 +35,15 @@
             color: white;
             text-align: center;
             padding: 50px 10px;
-            width: 100%; /* Arka planı ekranın tamamını kaplamak için genişlik ayarı */
-            position: relative; /* Konumlandırma ile genişletme */
+            width: 100%;
+            position: relative;
             box-sizing: border-box;
-            
         }
 
         .header h1 {
             font-family: 'Candara Light', sans-serif;
             font-size: 3em;
-            font-weight: normal; /* Yazıyı normal yapmak için */
+            font-weight: normal;
             margin: 0;
         }
 
@@ -56,7 +55,13 @@
             margin-top: 20px;
         }
 
+        a {
+            text-decoration: none; /* Bağlantı altını çizme */
+            color: inherit; /* Bağlantı metninin rengini kutu ile aynı yapalım */
+        }
+
         .event {
+            display: block; /* Etkinlik kutularının tamamen tıklanabilir olması için */
             background-color: #f5f5ef;
             padding: 20px;
             margin: 10px;
@@ -65,13 +70,19 @@
             width: 30%;
             min-width: 280px;
             flex-grow: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event:hover {
+            transform: scale(1.05); /* Hover'da kutu büyüsün */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Hover'da daha belirgin bir gölge */
         }
 
         .event h2 {
             font-size: 1.8em;
             color: #3b2a20;
             margin-bottom: 10px;
-            font-weight: normal; /* Yazıyı normal yapmak için */
+            font-weight: normal;
         }
 
         .event p {
@@ -80,15 +91,14 @@
         }
 
         .event strong {
-            font-weight: normal; /* Yazıyı normal yapmak için */
+            font-weight: normal;
         }
 
-        /* Kalan zaman stil */
         .countdown {
-            font-size: 1em; /* Küçük font boyutu */
+            font-size: 1em;
             margin-top: 15px;
             color: #3b2a20;
-            font-weight: normal; /* Yazıyı normal yapmak için */
+            font-weight: normal;
         }
 
         /* Mobil uyumlu stil */
@@ -99,29 +109,25 @@
             }
 
             .event {
-                width: 85%; /* Daha geniş kutular */
+                width: 85%;
             }
 
             .header h1 {
-                font-family: 'Candara Light', sans-serif;
                 font-size: 2.5em;
-                font-weight: lighter; /* Yazıyı normal yapmak için */
+                font-weight: lighter;
             }
 
-            /* Mobilde kalan zaman fontunu daha küçük yapalım */
             .countdown {
-                font-size: 0.9em; /* Mobilde biraz daha küçük */
-                font-weight: lighter; /* Mobilde yazıyı ince yapmak için */
+                font-size: 0.9em;
+                font-weight: lighter;
             }
 
-            /* Etkinlik başlıkları için de mobilde ince yazı tipi */
             .event h2 {
-                font-weight: lighter; /* Mobilde başlıkları daha ince yapmak için */
+                font-weight: lighter;
             }
 
-            /* Etkinlik açıklamaları için de mobilde ince yazı tipi */
             .event p {
-                font-weight: lighter; /* Mobilde metinleri daha ince yapmak için */
+                font-weight: lighter;
             }
         }
 
@@ -145,35 +151,35 @@
         </header>
         
         <section class="events">
-            <div class="event">
+            <a href="https://maps.app.goo.gl/inrwqCFZi97PPxof9?g_st=ic" class="event">
                 <h2>NİKAH</h2>
                 <p><strong>📅</strong> 18.10.2025</p>
                 <p><strong>🕑</strong> 12:45</p>
                 <p><strong>📍</strong> Üsküdar Nikah Sarayı <br> Mimar Sinan Mah. Çavuşdere Cad. No: 35 Üsküdar/Istanbul</p>
                 <div id="nikah-countdown" class="countdown"></div>
-            </div>
+            </a>
 
-            <div class="event">
+            <a href="https://maps.app.goo.gl/aVG2HCVrEvz1g2gT9?g_st=ic" class="event">
                 <h2>KINA</h2>
                 <p><strong>📅</strong> 23.10.2025</p>
                 <p><strong>🕑</strong> 19:00</p>
                 <p><strong>📍</strong> Be Wont Organizasyon Salonu <br> Çerkez Taşköprü Sapağı / Düzce</p>
                 <div id="kina-countdown" class="countdown"></div>
-            </div>
+            </a>
 
-            <div class="event">
+            <a href="https://maps.app.goo.gl/dMdjZz1t5HLPFCvo6?g_st=ic" class="event">
                 <h2>DÜĞÜN</h2>
                 <p><strong>📅</strong> 25.10.2025</p>
                 <p><strong>🕑</strong> 19:00</p>
                 <p><strong>📍</strong> Baykal Wedding Palace <br> Şehit Bayram Gökmen Mah. D655 Karayolu No: 78 / Düzce</p>
                 <div id="dugun-countdown" class="countdown"></div>
-            </div>
+            </a>
         </section>
     </div>
 
     <!-- Footer - Copyright bölümü -->
     <div class="footer">
-        <p>                    </p>
+        <p></p>
     </div>
 
     <script>
