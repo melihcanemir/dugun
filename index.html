@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eda & Melih - Düğün Davetiyesi</title>
+    <title>Eda & Melih</title>
     <style>
-        /* Genel stil */
-        * {
+         {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -29,7 +28,6 @@
             margin: 0 auto;
         }
 
-        /* Başlık stil */
         .header {
             background-color: #3b2a20;
             color: white;
@@ -47,7 +45,6 @@
             margin: 0;
         }
 
-        /* Etkinlikler bölümü */
         .events {
             display: flex;
             justify-content: space-between;
@@ -56,12 +53,12 @@
         }
 
         a {
-            text-decoration: none; /* Bağlantı altını çizme */
-            color: inherit; /* Bağlantı metninin rengini kutu ile aynı yapalım */
+            text-decoration: none; 
+            color: inherit; 
         }
 
         .event {
-            display: block; /* Etkinlik kutularının tamamen tıklanabilir olması için */
+            display: block; 
             background-color: #f5f5ef;
             padding: 20px;
             margin: 10px;
@@ -74,8 +71,8 @@
         }
 
         .event:hover {
-            transform: scale(1.05); /* Hover'da kutu büyüsün */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Hover'da daha belirgin bir gölge */
+            transform: scale(1.05); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
         }
 
         .event h2 {
@@ -101,7 +98,6 @@
             font-weight: normal;
         }
 
-        /* Mobil uyumlu stil */
         @media (max-width: 768px) {
             .events {
                 flex-direction: column;
@@ -131,7 +127,6 @@
             }
         }
 
-        /* Copyright bölümü */
         .footer {
             background-color: #3b2a20;
             color: white;
@@ -200,35 +195,30 @@
         </section>
     </div>
 
-    <!-- Footer - Copyright bölümü -->
     <div class="footer">
         <p></p>
     </div>
 
     <script>
-        // Tarihleri belirliyoruz
+        
         const nikahDate = new Date("October 18, 2025 12:45:00").getTime();
         const kinaDate = new Date("October 23, 2025 19:00:00").getTime();
         const dugunDate = new Date("October 25, 2025 19:00:00").getTime();
 
-        // Geri sayımı her saniye güncelleyen fonksiyon
+
         function updateCountdown() {
             const now = new Date().getTime();
 
-            // Nikah
             const nikahTimeLeft = nikahDate - now;
             document.getElementById("nikah-countdown").innerHTML = formatTime(nikahTimeLeft);
 
-            // Kına
             const kinaTimeLeft = kinaDate - now;
             document.getElementById("kina-countdown").innerHTML = formatTime(kinaTimeLeft);
 
-            // Düğün
             const dugunTimeLeft = dugunDate - now;
             document.getElementById("dugun-countdown").innerHTML = formatTime(dugunTimeLeft);
         }
 
-        // Zamanı günlere, saatlere, dakikalara ve saniyelere çeviren fonksiyon
         function formatTime(time) {
             const days = Math.floor(time / (1000 * 60 * 60 * 24));
             const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -237,18 +227,15 @@
             return `${days} Gün ${hours} Saat ${minutes} Dakika ${seconds} Saniye`;
         }
 
-        // İlk sayfa yüklendiğinde geri sayımı başlatıyoruz
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-// İlk sayfa yüklendiğinde geri sayımı başlatıyoruz
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // Konfeti Efekti
         document.addEventListener("DOMContentLoaded", function() {
             let confettiInterval;
-            const confettiDuration = 3000; // 5 saniye sürecek
+            const confettiDuration = 3000; 
 
             function createConfetti() {
                 const colors = ['#ff4081', '#3f51b5', '#4caf50', '#ffeb3b', '#ff5722'];
@@ -265,13 +252,11 @@
                 
                 document.body.appendChild(confetti);
                 
-                // Remove confetti after it falls
                 setTimeout(() => {
                     confetti.remove();
                 }, randomDuration * 1000);
             }
 
-            // Start generating confetti
             confettiInterval = setInterval(createConfetti, 50);
 
             // Stop the confetti effect after 5 seconds
