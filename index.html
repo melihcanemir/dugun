@@ -1,2 +1,271 @@
-<!DOCTYPE html> <html lang="tr"> <head>  <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Edanur & Melih</title>    <style> {  margin: 0;            padding: 0;            box-sizing: border-box;        }        html, body {            height: 100%;            width: 100%;        }        body {            font-family: 'Candara Light', sans-serif;            background-color: #f5f5ef;            color: #333;            line-height: 1.6;        }        .container {        width: 100%;       margin: 0 auto;        }        .header {            background-color: #3b2a20;            color: white;       text-align: center;            padding: 50px 10px;            width: 100%;            position: relative;            box-sizing: border-box;        }        .header h1 {            font-family: 'Candara Light', sans-serif;            font-size: 3em;            font-weight: normal;            margin: 0;        }        .events {            display: flex;            justify-content: space-between;            flex-wrap: wrap;            margin-top: 20px;        }        a {            text-decoration: none;             color: inherit;         }        .event {            display: block;             background-color: #f5f5ef;            padding: 20px;            margin: 10px;            border-radius: 8px;            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);            width: 30%;            min-width: 280px;            flex-grow: 1;            transition: transform 0.3s ease, box-shadow 0.3s ease;        }        .event:hover {            transform: scale(1.05);             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);         }        .event h2 {            font-size: 1.8em;            color: #3b2a20;            margin-bottom: 10px;            font-weight: normal;        }        .event p {            font-size: 1.1em;            margin-bottom: 8px;        }        .event strong {            font-weight: normal;        }        .countdown {            font-size: 1em;            margin-top: 15px;            color: #3b2a20;            font-weight: normal;        }        @media (max-width: 768px) {            .events {                flex-direction: column;                align-items: center;            }            .event {                width: 85%;            }            .header h1 {                font-size: 2.5em;                font-weight: lighter;            }            .countdown {                font-size: 0.9em;                font-weight: lighter;            }            .event h2 {                font-weight: lighter;            }            .event p {                font-weight: lighter;            }        }        .footer {            background-color: #3b2a20;            color: white;            text-align: center;            padding: 25px 0;            position: relative;            width: 100%;            bottom: 0;            box-sizing: border-box;        } .confetti {      position: absolute;      top: -10px;      width: 10px;      height: 10px;      background-color: #ff4081;      animation: fall 3s infinite linear;      opacity: 0;    }    @keyframes fall {      0% {        transform: translateY(0) rotate(0deg);        opacity: 1;      }      100% {        transform: translateY(100vh) rotate(360deg);        opacity: 0;      }    }    </style></head><body>    <div class="container">        <header class="header">            <h1>EDANUR & MELİH</h1>        </header>                <section class="events">            <a href="https://maps.app.goo.gl/inrwqCFZi97PPxof9?g_st=ic" class="event">                <h2>NİKAH</h2>                <p><strong>📅</strong> 18.10.2025</p>                <p><strong>🕑</strong> 12:45</p>                <p><strong>📍</strong> Üsküdar Nikah Sarayı  <br> Üsküdar Belediyesi Nikah Sarayı Mavi Salon Üsküdar/Istanbul</p>                <div id="nikah-countdown" class="countdown"></div>            </a>            <a href="https://maps.app.goo.gl/aVG2HCVrEvz1g2gT9?g_st=ic" class="event">                <h2>KINA</h2>                <p><strong>📅</strong> 23.10.2025</p>                <p><strong>🕑</strong> 19:00</p>                <p><strong>📍</strong> Be Wont Organizasyon Salonu <br> D-100 Karayolu Üzeri Çerkez Taşköprü Mevkii / Düzce</p>                <div id="kina-countdown" class="countdown"></div>            </a>            <a href="https://maps.app.goo.gl/dMdjZz1t5HLPFCvo6?g_st=ic" class="event">                <h2>DÜĞÜN</h2>                <p><strong>📅</strong> 25.10.2025</p>                <p><strong>🕑</strong> 19:00</p>                <p><strong>📍</strong> Baykal Wedding Palace <br> Akçakoca yolu üzeri / Düzce</p>                <div id="dugun-countdown" class="countdown"></div>            </a>        </section>    </div>    <div class="footer">        <p></p>    </div>    <script>                const nikahDate = new Date("October 18, 2025 12:45:00").getTime();        const kinaDate = new Date("October 23, 2025 19:00:00").getTime();        const dugunDate = new Date("October 25, 2025 19:00:00").getTime();       function updateCountdown() {            const now = new Date().getTime();            const nikahTimeLeft = nikahDate - now;            document.getElementById("nikah-countdown").innerHTML = formatTime(nikahTimeLeft);            const kinaTimeLeft = kinaDate - now;            document.getElementById("kina-countdown").innerHTML = formatTime(kinaTimeLeft);            const dugunTimeLeft = dugunDate - now;            document.getElementById("dugun-countdown").innerHTML = formatTime(dugunTimeLeft);        }        function formatTime(time) {            const days = Math.floor(time / (1000 * 60 * 60 * 24));            const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));            const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));            const seconds = Math.floor((time % (1000 * 60)) / 1000);            return `${days} Gün ${hours} Saat ${minutes} Dakika ${seconds} Saniye`;        }        updateCountdown();        setInterval(updateCountdown, 1000);        updateCountdown();        setInterval(updateCountdown, 1000);        document.addEventListener("DOMContentLoaded", function() {            let confettiInterval;            const confettiDuration = 3000;             function createConfetti() {                const colors = ['#ff4081', '#3f51b5', '#4caf50', '#ffeb3b', '#ff5722'];                const confetti = document.createElement('div');                confetti.classList.add('confetti');                                const randomX = Math.random() * window.innerWidth;                const randomDuration = Math.random() * 2 + 2; // Randomize fall speed                const randomColor = colors[Math.floor(Math.random() * colors.length)];                                confetti.style.left = `${randomX}px`;                confetti.style.backgroundColor = randomColor;                confetti.style.animationDuration = `${randomDuration}s`;                                document.body.appendChild(confetti);                                setTimeout(() => {                  confetti.remove();                }, randomDuration * 1000);            }            confettiInterval = setInterval(createConfetti, 50);// Stop the confetti effect after 5 seconds            setTimeout(() => {                clearInterval(confettiInterval);            }, confettiDuration);        });    </script></body></html>
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edanur & Melih</title>
+
+    <style>
+         {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'Candara Light', sans-serif;
+            background-color: #f5f5ef;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .header {
+            background-color: #3b2a20;
+            color: white;
+            text-align: center;
+            padding: 50px 10px;
+            width: 100%;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .header h1 {
+            font-family: 'Candara Light', sans-serif;
+            font-size: 3em;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .events {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        a {
+            text-decoration: none; 
+            color: inherit; 
+        }
+
+        .event {
+            display: block; 
+            background-color: #f5f5ef;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            min-width: 280px;
+            flex-grow: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .event:hover {
+            transform: scale(1.05); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); 
+        }
+
+        .event h2 {
+            font-size: 1.8em;
+            color: #3b2a20;
+            margin-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .event p {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+
+        .event strong {
+            font-weight: normal;
+        }
+
+        .countdown {
+            font-size: 1em;
+            margin-top: 15px;
+            color: #3b2a20;
+            font-weight: normal;
+        }
+
+        @media (max-width: 768px) {
+            .events {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .event {
+                width: 85%;
+            }
+
+            .header h1 {
+                font-size: 2.5em;
+                font-weight: lighter;
+            }
+
+            .countdown {
+                font-size: 0.9em;
+                font-weight: lighter;
+            }
+
+            .event h2 {
+                font-weight: lighter;
+            }
+
+            .event p {
+                font-weight: lighter;
+            }
+        }
+
+        .footer {
+            background-color: #3b2a20;
+            color: white;
+            text-align: center;
+            padding: 25px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            box-sizing: border-box;
+        }
+
+ .confetti {
+      position: absolute;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background-color: #ff4081;
+      animation: fall 3s infinite linear;
+      opacity: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>EDANUR & MELİH</h1>
+        </header>
+        
+        <section class="events">
+            <a href="https://maps.app.goo.gl/inrwqCFZi97PPxof9?g_st=ic" class="event">
+                <h2>NİKAH</h2>
+                <p><strong>📅</strong> 18.10.2025</p>
+                <p><strong>🕑</strong> 12:45</p>
+                <p><strong>📍</strong> Üsküdar Nikah Sarayı <br> Salon - 2 (Mavi Salon) <br> Üsküdar Belediyesi Nikah Sarayı Mavi Salon  Üsküdar/Istanbul<br> 10:30'da Beylikdüzü'ndeki evimizden gelin çıkışı yapılacaktır </p> 
+                <div id="nikah-countdown" class="countdown"></div>
+            </a>
+
+            <a href="https://maps.app.goo.gl/aVG2HCVrEvz1g2gT9?g_st=ic" class="event">
+                <h2>KINA</h2>
+                <p><strong>📅</strong> 23.10.2025</p>
+                <p><strong>🕑</strong> 19:00</p>
+                <p><strong>📍</strong> Be Wont Organizasyon Salonu <br> D-100 Karayolu Üzeri Çerkez Taşköprü Mevkii / Düzce <br> Kadınlar arasında olacaktır</p>
+                <div id="kina-countdown" class="countdown"></div>
+            </a>
+
+            <a href="https://maps.app.goo.gl/dMdjZz1t5HLPFCvo6?g_st=ic" class="event">
+                <h2>DÜĞÜN</h2>
+                <p><strong>📅</strong> 25.10.2025</p>
+                <p><strong>🕑</strong> 19:00</p>
+                <p><strong>📍</strong> Baykal Wedding Palace <br> Akçakoca Yolu Üzeri / Düzce <br> 18:00'da damat evinden çıkılacaktır </p>
+                <div id="dugun-countdown" class="countdown"></div>
+            </a>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p></p>
+    </div>
+
+    <script>
+        
+        const nikahDate = new Date("October 18, 2025 12:45:00").getTime();
+        const kinaDate = new Date("October 23, 2025 19:00:00").getTime();
+        const dugunDate = new Date("October 25, 2025 19:00:00").getTime();
+
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+
+            const nikahTimeLeft = nikahDate - now;
+            document.getElementById("nikah-countdown").innerHTML = formatTime(nikahTimeLeft);
+
+            const kinaTimeLeft = kinaDate - now;
+            document.getElementById("kina-countdown").innerHTML = formatTime(kinaTimeLeft);
+
+            const dugunTimeLeft = dugunDate - now;
+            document.getElementById("dugun-countdown").innerHTML = formatTime(dugunTimeLeft);
+        }
+
+        function formatTime(time) {
+            const days = Math.floor(time / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((time % (1000 * 60)) / 1000);
+            return `${days} Gün ${hours} Saat ${minutes} Dakika ${seconds} Saniye`;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let confettiInterval;
+            const confettiDuration = 3000; 
+
+            function createConfetti() {
+                const colors = ['#ff4081', '#3f51b5', '#4caf50', '#ffeb3b', '#ff5722'];
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                const randomX = Math.random() * window.innerWidth;
+                const randomDuration = Math.random() * 2 + 2; // Randomize fall speed
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                
+                confetti.style.left = `${randomX}px`;
+                confetti.style.backgroundColor = randomColor;
+                confetti.style.animationDuration = `${randomDuration}s`;
+                
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, randomDuration * 1000);
+            }
+
+            confettiInterval = setInterval(createConfetti, 50);
+
+            // Stop the confetti effect after 5 seconds
+            setTimeout(() => {
+                clearInterval(confettiInterval);
+            }, confettiDuration);
+        });
+    </script>
+</body>
+</html>
 
