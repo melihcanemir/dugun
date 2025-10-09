@@ -104,7 +104,11 @@
       animation: fall 3s infinite linear;
       opacity: 0;
     }
-
+.address {
+    font-size: 1.1em; /* Büyüklüğü burada ayarlarsın */
+    line-height: 1.5;
+    color: #3b2a20; /* İsteğe bağlı: Yazı rengini ayarlamak için */
+}
     @keyframes fall {
       0% {
         transform: translateY(0) rotate(0deg);
@@ -161,11 +165,7 @@
         const nikahDate = new Date("October 18, 2025 12:45:00").getTime();
         const kinaDate = new Date("October 23, 2025 19:00:00").getTime();
         const dugunDate = new Date("October 25, 2025 19:00:00").getTime();
-.address {
-    font-size: 1.1em; /* Büyüklüğü burada ayarlarsın */
-    line-height: 1.5;
-    color: #3b2a20; /* İsteğe bağlı: Yazı rengini ayarlamak için */
-}
+
 
         function updateCountdown() {
             const now = new Date().getTime();
@@ -228,6 +228,7 @@
     </script>
 </body>
 </html>
+
 
 
 
